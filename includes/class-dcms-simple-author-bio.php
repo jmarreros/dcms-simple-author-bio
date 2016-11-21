@@ -32,14 +32,12 @@ class Dcms_Simple_Author_Bio{
 	}
 
 
-
 	/*
 	*  Creamos los controles del plugin
 	*/
 	public function dcms_sab_settings_page(){
 		$this->dcms_options->dcms_sab_create_admin_form();	
 	}
-
 
 
 	/*
@@ -54,30 +52,23 @@ class Dcms_Simple_Author_Bio{
 	*  Activación del plugin
 	*/
 	public function dcms_sab_activate(){
-
-			delete_option('dcms_sab_bd_options');
 			
+			delete_option('dcms_sab_bd_options');
+
 			$options 	= get_option('dcms_sab_bd_options');
 
 			// Retorna false cuando no existe, en otros casos siempre retorna un valor asi sea vacío ''
-			if ( is_bool($options) ){
+			if ( is_bool($options) && ! $options ){
 
-			 	$options = ['chk_show_social' => 'on'];
+			 	$options = [
+			 				'chk_show_social' => 'on',
+			 				'chk_new_window' => 'on' 
+			 				];
 
 				update_option('dcms_sab_bd_options',$options);
-			
+
 			}
-
 	}
-
-
-	// }
-
-	/*
-	*  Desactivación del plugin
-	*/
-	// public function dcms_sab_desactivate(){
-	// }
 
 
 }
