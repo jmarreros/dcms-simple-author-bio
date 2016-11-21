@@ -55,21 +55,28 @@ class Dcms_Sab_Admin_Options{
 		$this->dcms_sab_add_setting_field( 'Open in a new Window', 'chk_new_window', 'dcms_sab_basic_section');
 		$this->dcms_sab_add_setting_field( 'Load FontAwesome', 'chk_load_icons', 'dcms_sab_advanced_section');
 		$this->dcms_sab_add_setting_field( 'Load Default CSS', 'chk_load_css', 'dcms_sab_advanced_section');
+		$this->dcms_sab_add_setting_field( 'Custom CSS', 'txtarea_customcss', 'dcms_sab_advanced_section','textarea');
 
 	}
 
 
 	public function dcms_sab_check_fields( $args ){
 
-		$field 			= $args[0];
-		$field_value 	= isset($this->options[$field]);
+		$field 		 = $args[0];
+		$field_value = isset($this->options[$field]);
 
 		echo '<input id="'.$field.'" name="dcms_sab_bd_options['.$field.']" '.checked($field_value, true, false).' type="checkbox" />';
 	}
 
-	public function dcms_sab_textarea_fields(){
-		echo '<textarea cols="" rows="" id=""></textarea>';
+
+	public function dcms_sab_textarea_fields( $args ){
+
+		$field 		 = $args[0];
+		$field_value = $this->options[$field];
+
+		echo '<textarea cols="80" rows="8" id="'.$field.'" name="dcms_sab_bd_options['.$field.']" >'.$field_value.'</textarea>';
 	}
+
 
 	public function dcms_sab_add_setting_field( $field_text , $field_name , $section ,$type = 'check'){
 
