@@ -5,7 +5,10 @@ require_once plugin_dir_path( __FILE__ ).'class-dcms-sab-admin-options.php';
 
 class Dcms_Simple_Author_Bio{
 
+	const PATH_TEMPLATE =  '../template/box-author-bio.txt'; 
+
 	private $dcms_options;
+
 
 	public function __construct(){
 
@@ -47,9 +50,37 @@ class Dcms_Simple_Author_Bio{
 	public function dcms_sab_add_content_bio( $content ){
 
 		if ( is_single() ){
-			//$template = $this->dcms_sab_template_to_string();
-			return $content;
+
+			return $content.$this->get_author_bio();
 		}
+
+	}
+
+
+	/*
+	*  Para reemplazar las cadenas de la plantilla en el archivo box-author-bio.txt
+	*/
+	private function get_author_bio(){
+		
+		$template 	= file_get_contents( plugin_dir_path( __FILE__ ).self::PATH_TEMPLATE );
+
+		if ( is_bool($template) ){
+			return '';
+		}
+
+		$search		= ['{title}','{avatar}','{description}','{web}','{twitter}','{google}','{facebook}'];
+		$twitter 	= get_the_author_meta( 'twitter' );
+
+		$replace 	= [];
+		$replace[] 	= get_the_author();
+		$replace[] 	= get_avatar( get_the_author_meta( 'user_email' ) );
+		$replace[] 	= get_the_author_meta( 'description');
+		$replace[]	= get_the_author_meta( 'url' );
+		$replace[]	= filter_var( $twitter  , FILTER_VALIDATE_URL) ? $twitter : 'https://twitter.com/'.$twitter;
+		$replace[]	= get_the_author_meta( 'googleplus' );
+		$replace[]	= get_the_author_meta( 'facebook' );
+
+		return str_replace( $search, $replace, $template );
 
 	}
 

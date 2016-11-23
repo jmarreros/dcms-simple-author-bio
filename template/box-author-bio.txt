@@ -1,0 +1,16 @@
+<hr/>
+<div class="author-info">
+	<h3 class="author-heading">{title}</h3>
+	<div class="author-avatar">
+		{avatar}
+	</div>
+	<div class="author-description">
+		{description}
+	</div>
+	<div class="author-social">
+		<a href="{web}" target="_blank" >Web</a>
+		<a href="{twitter}" target="_blank">Twitter</a>
+		<a href="{google}" target="_blank">Google+</a>
+		<a href="{facebook}" target="_blank">Facebook</a>
+	</div>
+</div>
