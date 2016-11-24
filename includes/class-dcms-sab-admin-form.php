@@ -1,7 +1,7 @@
 <?php
 
 
-class Dcms_Sab_Admin_Options{
+class Dcms_Sab_Admin_Form{
 
 	private $options;
 
@@ -52,8 +52,7 @@ class Dcms_Sab_Admin_Options{
 		// Fields
 		$this->dcms_sab_add_setting_field( 'Hide author without description', 'chk_hide_author', 'dcms_sab_basic_section');
 		$this->dcms_sab_add_setting_field( 'Show social network', 'chk_show_social', 'dcms_sab_basic_section');
-		$this->dcms_sab_add_setting_field( 'Open in a new Window', 'chk_new_window', 'dcms_sab_basic_section');
-		$this->dcms_sab_add_setting_field( 'Load FontAwesome', 'chk_load_icons', 'dcms_sab_advanced_section');
+		$this->dcms_sab_add_setting_field( 'Load FontAwesome', 'chk_load_fontawesome', 'dcms_sab_advanced_section');
 		$this->dcms_sab_add_setting_field( 'Load Default CSS', 'chk_load_css', 'dcms_sab_advanced_section');
 		$this->dcms_sab_add_setting_field( 'Custom CSS', 'txtarea_customcss', 'dcms_sab_advanced_section','textarea');
 
