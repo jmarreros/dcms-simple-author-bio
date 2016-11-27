@@ -15,7 +15,7 @@ class Dcms_Simple_Author_Bio{
 		$this->dcms_admin_form  =  new Dcms_Sab_Admin_Form();
 		$this->dcms_options 	=  get_option( 'dcms_sab_bd_options' );
 
-		add_action('init',[$this,'dcms_sab_tranlation']);
+		//add_action('init',[$this,'dcms_sab_tranlation']);
 		add_action('admin_menu',[$this,'dcms_sab_add_menu']);
 		add_action('admin_init',[$this->dcms_admin_form,'dcms_sab_admin_init']);
 		add_filter( 'the_content', [$this,'dcms_sab_add_content_bio'] );
@@ -42,8 +42,8 @@ class Dcms_Simple_Author_Bio{
 	*/
 	public function dcms_sab_add_menu(){
 
-		add_options_page(__('Author Biography Options','dcms_sab'), 
-							__('Author Bio','dcms_sab'), 
+		add_options_page(__('Author Biography Options','dcms_simple_author_bio'), 
+							__('Author Bio','dcms_simple_author_bio'), 
 							'manage_options', 
 							'dcms_sab_options', 
 							[$this, 'dcms_sab_settings_page'] 
@@ -66,7 +66,15 @@ class Dcms_Simple_Author_Bio{
 
 		if ( is_single() ){
 
-			return $content.$this->get_author_bio();
+			$show_social 	= isset( $this->dcms_options['chk_show_social'] );
+			$hide_author	= isset( $this->dcms_options['chk_hide_author'] );
+
+
+			if ( get_the_author_meta('description') == '' &&  $hide_author ){
+				return $content;
+			}
+
+			return $content.$this->get_author_bio( $show_social );
 		}
 
 	}
@@ -75,7 +83,7 @@ class Dcms_Simple_Author_Bio{
 	/*
 	*  Para reemplazar las cadenas de la plantilla en el archivo box-author-bio.txt
 	*/
-	private function get_author_bio(){
+	private function get_author_bio( $show_social ){
 		
 		$template 	= file_get_contents( plugin_dir_path( __FILE__ ).self::PATH_TEMPLATE );
 
@@ -85,7 +93,7 @@ class Dcms_Simple_Author_Bio{
 
 		$search		= ['{title}','{avatar}','{description}',
 						'{web}','{twitter}','{google}','{facebook}',
-						'{show-all-author}','{show-all-author-text}'];
+						'{show-all-author}','{show-all-author-text}','{hide}'];
 
 		$twitter 	= get_the_author_meta( 'twitter' );
 
@@ -98,7 +106,8 @@ class Dcms_Simple_Author_Bio{
 		$replace[]	= get_the_author_meta( 'googleplus' );
 		$replace[]	= get_the_author_meta( 'facebook' );
 		$replace[]	= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
-		$replace[]	= __('View all posts','dcms_sab');
+		$replace[]	= __('View all posts','dcms_simple_author_bio');
+		$replace[]	= $show_social ? '' : 'style="display:none"';
 
 		return str_replace( $search, $replace, $template );
 
@@ -109,7 +118,7 @@ class Dcms_Simple_Author_Bio{
 	*  Para cargar los archivos de traducción Traducciones
 	*/
 	public function dcms_sab_tranlation(){
-		load_plugin_textdomain('dcms_sab', false, plugin_dir_path( __FILE__ ).'/languages' );
+		//load_plugin_textdomain('dcms_sab', false, plugin_dir_path( __FILE__ ).'/languages' );
 	}
 
 

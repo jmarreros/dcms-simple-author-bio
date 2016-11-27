@@ -12,7 +12,7 @@
 
 	<div class="author-footer">
 
-		<div class="author-social">
+		<div class="author-social" {hide}>
 			<a href="{web}" target="_blank" >Web</a>
 			<a href="{twitter}" target="_blank">Twitter</a>
 			<a href="{google}" target="_blank">Google+</a>
