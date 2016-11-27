@@ -43,10 +43,8 @@ class Dcms_Simple_Author_Bio{
 	*/
 	public function dcms_sab_add_menu(){
 
-<<<<<<< HEAD
 		add_options_page(__('Author Biography Options','dcms-simple-author-bio'), 
 							__('Author Bio','dcms-simple-author-bio'), 
->>>>>>> 4fb71641226caf19becca553ab81a5913af6cce9
 							'manage_options', 
 							'dcms_sab_options', 
 							[$this, 'dcms_sab_settings_page'] 
@@ -72,7 +70,8 @@ class Dcms_Simple_Author_Bio{
 			$show_social 	= isset( $this->dcms_options['chk_show_social'] );
 			$hide_author	= isset( $this->dcms_options['chk_hide_author'] );
 
-
+			echo "<p>Social".$show_social."</p>";
+			
 			if ( get_the_author_meta('description') == '' &&  $hide_author ){
 				return $content;
 			}
@@ -109,11 +108,9 @@ class Dcms_Simple_Author_Bio{
 		$replace[]	= get_the_author_meta( 'googleplus' );
 		$replace[]	= get_the_author_meta( 'facebook' );
 		$replace[]	= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
-<<<<<<< HEAD
 
 		$replace[]	= __('View all posts','dcms_simple_author_bio');
 		$replace[]	= $show_social ? '' : 'style="display:none"';
->>>>>>> 4fb71641226caf19becca553ab81a5913af6cce9
 
 		return str_replace( $search, $replace, $template );
 
@@ -124,11 +121,9 @@ class Dcms_Simple_Author_Bio{
 	*  Para cargar los archivos de traducción Traducciones
 	*/
 	public function dcms_sab_tranlation(){
-<<<<<<< HEAD
 
 		load_plugin_textdomain('dcms-simple-author-bio', false, self::PATH_LANGUAGE );
 
->>>>>>> 4fb71641226caf19becca553ab81a5913af6cce9
 	}
 
 
