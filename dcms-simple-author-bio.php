@@ -23,3 +23,13 @@ new Dcms_Simple_Author_Bio();
 
 
 
+add_action('init', 'dcms_plugin_load_textdomain');
+
+function dcms_plugin_load_textdomain() {
+	
+	$text_domain	= 'dcms-simple-author-bio';
+	$path_languages = basename(dirname(__FILE__)).'/languages/';
+
+ 	load_plugin_textdomain($text_domain, false, $path_languages );
+}
+

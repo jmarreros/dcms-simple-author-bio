@@ -5,17 +5,18 @@ require_once plugin_dir_path( __FILE__ ).'class-dcms-sab-admin-form.php';
 
 class Dcms_Simple_Author_Bio{
 
-	const PATH_TEMPLATE =  '../template/box-author-bio.txt'; 
+	const PATH_TEMPLATE = '../template/box-author-bio.txt'; 
+	const PATH_LANGUAGE = 'dcms-Simple-Author-Bio/languages';
 
 	private $dcms_admin_form;
 	private $dcms_options;
 
 	public function __construct(){
 
-		$this->dcms_admin_form  =  new Dcms_Sab_Admin_Form();
-		$this->dcms_options 	=  get_option( 'dcms_sab_bd_options' );
+		$this->dcms_admin_form  = new Dcms_Sab_Admin_Form();
+		$this->dcms_options 	= get_option( 'dcms_sab_bd_options' );
 
-		add_action('init',[$this,'dcms_sab_tranlation']);
+		//add_action('init',[$this,'dcms_sab_tranlation']);
 		add_action('admin_menu',[$this,'dcms_sab_add_menu']);
 		add_action('admin_init',[$this->dcms_admin_form,'dcms_sab_admin_init']);
 		add_filter( 'the_content', [$this,'dcms_sab_add_content_bio'] );
@@ -42,8 +43,8 @@ class Dcms_Simple_Author_Bio{
 	*/
 	public function dcms_sab_add_menu(){
 
-		add_options_page(__('Author Biography Options','dcms_sab'), 
-							__('Author Bio','dcms_sab'), 
+		add_options_page(__('Author Biography Options','dcms-simple-author-bio'), 
+							__('Author Bio','dcms-simple-author-bio'), 
 							'manage_options', 
 							'dcms_sab_options', 
 							[$this, 'dcms_sab_settings_page'] 
@@ -98,7 +99,7 @@ class Dcms_Simple_Author_Bio{
 		$replace[]	= get_the_author_meta( 'googleplus' );
 		$replace[]	= get_the_author_meta( 'facebook' );
 		$replace[]	= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
-		$replace[]	= __('View all posts','dcms_sab');
+		$replace[]	= __('View all posts','dcms-simple-author-bio');
 
 		return str_replace( $search, $replace, $template );
 
@@ -109,7 +110,8 @@ class Dcms_Simple_Author_Bio{
 	*  Para cargar los archivos de traducción Traducciones
 	*/
 	public function dcms_sab_tranlation(){
-		load_plugin_textdomain('dcms_sab', false, plugin_dir_path( __FILE__ ).'/languages' );
+
+		load_plugin_textdomain('dcms-simple-author-bio', false, self::PATH_LANGUAGE );
 	}
 
 

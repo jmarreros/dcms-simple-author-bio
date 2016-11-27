@@ -1,0 +1,57 @@
+# Copyright (C) 2016 DCMS Simple Author Bio
+# This file is distributed under the same license as the DCMS Simple Author Bio package.
+msgid ""
+msgstr ""
+"Project-Id-Version: DCMS Simple Author Bio 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/dcms-Simple-Author-Bio\n"
+"POT-Creation-Date: 2016-11-26 09:36-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-11-26 09:36-0500\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#: includes/class-dcms-sab-admin-form.php:17
+msgid "Simple Author Bio"
+msgstr "Biografia del autor"
+
+#: includes/class-dcms-sab-admin-form.php:42
+msgid "Basic Configuration"
+msgstr "Configuración base"
+
+#: includes/class-dcms-sab-admin-form.php:48
+msgid "Advanced Configuration"
+msgstr "Configuración Avanzada"
+
+#: includes/class-dcms-simple-author-bio.php:46
+msgid "Author Biography Options"
+msgstr "Opciones de autor Biografía"
+
+#: includes/class-dcms-simple-author-bio.php:47
+msgid "Author Bio"
+msgstr "Biografía del Autor"
+
+#: includes/class-dcms-simple-author-bio.php:102
+msgid "View all posts"
+msgstr "Ver todo"
+
+#. Plugin Name of the plugin/theme
+msgid "DCMS Simple Author Bio"
+msgstr "DCMS simple Biografía del autor"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://decodecms.com"
+msgstr "https://decodecms.com"
+
+#. Description of the plugin/theme
+msgid "This plugins shows the bio in articles"
+msgstr "Este plugin muestra la biografia del autor en las entradas"
+
+#. Author of the plugin/theme
+msgid "Jhon Marreros Guzmán"
+msgstr "Jhon Marreros Guzmán"

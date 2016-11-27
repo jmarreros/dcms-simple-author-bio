@@ -14,7 +14,7 @@ class Dcms_Sab_Admin_Form{
 		<div class="wrap">
 
 			
-			<h2><?php _e('Simple Author Bio','dcms_sab') ?></h2>
+			<h2><?php _e('Simple Author Bio','dcms-simple-author-bio') ?></h2>
 			
 			<form action="options.php" method="post">
 				<?php
@@ -39,13 +39,13 @@ class Dcms_Sab_Admin_Form{
 		
 		// Basic
 		add_settings_section('dcms_sab_basic_section', 
-							__('Basic Configuration','dcms_sab'), 
+							__('Basic Configuration','dcms-simple-author-bio'), 
 							[$this,'dcms_sab_section_callback'], 
 							'dcms_sab_options' );
 
 		// Advanced
 		add_settings_section('dcms_sab_advanced_section', 
-							__('Advanced Configuration','dcms_sab'), 
+							__('Advanced Configuration','dcms-simple-author-bio'), 
 							[$this,'dcms_sab_section_callback'], 
 							'dcms_sab_options' );
 
@@ -80,7 +80,7 @@ class Dcms_Sab_Admin_Form{
 	public function dcms_sab_add_setting_field( $field_text , $field_name , $section ,$type = 'check'){
 
 		add_settings_field('dcms_sab_fields_'.$field_name, 
-							__( $field_text ,'dcms_sab'), 
+							__( $field_text ,'dcms-simple-author-bio'), 
 							[$this,'dcms_sab_'.$type.'_fields'], 
 							'dcms_sab_options', 
 							$section,
