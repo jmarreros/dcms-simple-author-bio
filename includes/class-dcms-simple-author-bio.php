@@ -16,22 +16,26 @@ class Dcms_Simple_Author_Bio{
 		$this->dcms_admin_form  = new Dcms_Sab_Admin_Form();
 		$this->dcms_options 	= get_option( 'dcms_sab_bd_options' );
 
-		//add_action('init',[$this,'dcms_sab_tranlation']);
+		add_action('init',[$this,'dcms_sab_tranlation']);
 		add_action('admin_menu',[$this,'dcms_sab_add_menu']);
 		add_action('admin_init',[$this->dcms_admin_form,'dcms_sab_admin_init']);
 		add_filter( 'the_content', [$this,'dcms_sab_add_content_bio'] );
 
-		add_action( 'wp_enqueue_scripts', [$this,'dcms_sab_load_font_awesome_css'] );
+		add_action( 'wp_enqueue_scripts', [$this,'dcms_sab_load_scripts_css'] );
 	}
 
 
 	/*
 	*  Para cargar los estilos CSS
 	*/
-    public function dcms_sab_load_font_awesome_css() {
+    public function dcms_sab_load_scripts_css() {
 
     	if ( isset( $this->dcms_options['chk_load_fontawesome'] ) ){
-        	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+        	wp_enqueue_style( 'sab_font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+    	}
+
+    	if ( isset( $this->dcms_options['chk_load_css'] ) ){
+        	wp_enqueue_style( 'sab_custom_css', plugins_url( '../css/style.css', __FILE__ )  );
     	}
     
     }
@@ -70,7 +74,6 @@ class Dcms_Simple_Author_Bio{
 			$show_social 	= isset( $this->dcms_options['chk_show_social'] );
 			$hide_author	= isset( $this->dcms_options['chk_hide_author'] );
 
-			echo "<p>Social".$show_social."</p>";
 			
 			if ( get_the_author_meta('description') == '' &&  $hide_author ){
 				return $content;
@@ -141,7 +144,8 @@ class Dcms_Simple_Author_Bio{
 
 			 	$options = [
 			 				'chk_show_social' => 'on',
-			 				];
+			 				'chk_show_view_all'=> 'on',
+☺☻			 				];
 
 				update_option('dcms_sab_bd_options',$options);
 

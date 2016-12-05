@@ -13,7 +13,6 @@ class Dcms_Sab_Admin_Form{
 		?>
 		<div class="wrap">
 
-			
 			<h2><?php _e('Simple Author Bio','dcms-simple-author-bio') ?></h2>
 			
 			<form action="options.php" method="post">
@@ -52,11 +51,12 @@ class Dcms_Sab_Admin_Form{
 							'dcms_sab_options' );
 
 		// Fields
-		$this->dcms_sab_add_setting_field( 'Hide author without description', 'chk_hide_author', 'dcms_sab_basic_section');
-		$this->dcms_sab_add_setting_field( 'Show social network', 'chk_show_social', 'dcms_sab_basic_section');
-		$this->dcms_sab_add_setting_field( 'Load FontAwesome', 'chk_load_fontawesome', 'dcms_sab_advanced_section');
-		$this->dcms_sab_add_setting_field( 'Load Default CSS', 'chk_load_css', 'dcms_sab_advanced_section');
-		$this->dcms_sab_add_setting_field( 'Custom CSS', 'txtarea_customcss', 'dcms_sab_advanced_section','textarea');
+		$this->dcms_sab_add_setting_field( __('Hide author without description','dcms-simple-author-bio'), 'chk_hide_author', 'dcms_sab_basic_section');
+		$this->dcms_sab_add_setting_field( __('Show social network','dcms-simple-author-bio'), 'chk_show_social', 'dcms_sab_basic_section');
+		$this->dcms_sab_add_setting_field( __('Show View all posts','dcms-simple-author-bio'), 'chk_show_view_all', 'dcms_sab_basic_section');
+		$this->dcms_sab_add_setting_field( __('Load FontAwesome','dcms-simple-author-bio'), 'chk_load_fontawesome', 'dcms_sab_advanced_section');
+		$this->dcms_sab_add_setting_field( __('Load Default CSS','dcms-simple-author-bio'), 'chk_load_css', 'dcms_sab_advanced_section');
+		$this->dcms_sab_add_setting_field( __('Custom CSS','dcms-simple-author-bio'), 'txtarea_customcss', 'dcms_sab_advanced_section','textarea');
 
 	}
 

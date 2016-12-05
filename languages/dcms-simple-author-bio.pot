@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCMS Simple Author Bio 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/dcms-Simple-Author-Bio\n"
-"POT-Creation-Date: 2016-11-26 09:36-0500\n"
+"POT-Creation-Date: 2016-11-27 17:24-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,8 +22,28 @@ msgstr ""
 msgid "Basic Configuration"
 msgstr ""
 
-#: includes/class-dcms-sab-admin-form.php:48
+#: includes/class-dcms-sab-admin-form.php:50
 msgid "Advanced Configuration"
+msgstr ""
+
+#: includes/class-dcms-sab-admin-form.php:55
+msgid "Hide author without description"
+msgstr ""
+
+#: includes/class-dcms-sab-admin-form.php:56
+msgid "Show social network"
+msgstr ""
+
+#: includes/class-dcms-sab-admin-form.php:57
+msgid "Load FontAwesome"
+msgstr ""
+
+#: includes/class-dcms-sab-admin-form.php:58
+msgid "Load Default CSS"
+msgstr ""
+
+#: includes/class-dcms-sab-admin-form.php:59
+msgid "Custom CSS"
 msgstr ""
 
 #: includes/class-dcms-simple-author-bio.php:46
@@ -34,7 +54,7 @@ msgstr ""
 msgid "Author Bio"
 msgstr ""
 
-#: includes/class-dcms-simple-author-bio.php:102
+#: includes/class-dcms-simple-author-bio.php:111
 msgid "View all posts"
 msgstr ""
 

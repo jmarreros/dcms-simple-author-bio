@@ -1,0 +1,23 @@
+.author-avatar .avatar{
+	border-radius: 50%;
+	float: left;
+	max-width: 96px;	
+}
+
+.author-description{
+	margin-left: 112px;
+}
+
+.author-footer{
+	padding-top: 16px;
+	clear: both;
+	width: 100%;
+}
+
+.show-all-author{
+	float:right;
+}
+
+.author-social{
+	float:left;
+}
