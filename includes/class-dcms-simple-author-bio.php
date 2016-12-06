@@ -1,6 +1,7 @@
 <?php
 
 require_once plugin_dir_path( __FILE__ ).'class-dcms-sab-admin-form.php';
+require_once 'simple_html_dom.php';
 
 
 class Dcms_Simple_Author_Bio{
@@ -41,7 +42,6 @@ class Dcms_Simple_Author_Bio{
     }
 
 
-
 	/*
 	*  Creación del item de menú.
 	*/
@@ -71,15 +71,18 @@ class Dcms_Simple_Author_Bio{
 
 		if ( is_single() ){
 
-			$show_social 	= isset( $this->dcms_options['chk_show_social'] );
 			$hide_author	= isset( $this->dcms_options['chk_hide_author'] );
+
+			$show_all_posts	= isset( $this->dcms_options['chk_show_view_all'] );
+			$show_social 	= isset( $this->dcms_options['chk_show_social'] );
 
 			
 			if ( get_the_author_meta('description') == '' &&  $hide_author ){
 				return $content;
 			}
 
-			return $content.$this->get_author_bio( $show_social );
+			return $content.$this->get_author_bio( $show_social, $show_all_posts );
+
 		}
 
 	}
@@ -88,35 +91,47 @@ class Dcms_Simple_Author_Bio{
 	/*
 	*  Para reemplazar las cadenas de la plantilla en el archivo box-author-bio.txt
 	*/
-	private function get_author_bio( $show_social ){
+	private function get_author_bio( $show_social, $show_all_posts ){
 		
-		$template 	= file_get_contents( plugin_dir_path( __FILE__ ).self::PATH_TEMPLATE );
+		$template = file_get_html( plugin_dir_path( __FILE__ ).self::PATH_TEMPLATE );
 
-		if ( is_bool($template) ){
-			return '';
-		}
+		// Validaciones generales
+		if ( empty($template) ) 	return;
 
+		if ( ! $show_social ) 		$template->find('.author-social')[0]->outertext = '';
+		if ( ! $show_all_posts )	$template->find('.author-show-all')[0]->outertext = '';
+
+
+		// Validaciones para mostrar/ocultar las redes sociales individualmente
+		$web		= get_the_author_meta('url');
+		$twitter 	= get_the_author_meta('twitter');
+		$facebook	= get_the_author_meta('facebook');
+		$googleplus	= get_the_author_meta('googleplus');
+
+		if ( empty($web) ) 			$template->find('.author-web')[0]->outertext = '';
+		if ( empty($twitter) ) 		$template->find('.author-twitter')[0]->outertext = '';
+		if ( empty($facebook) ) 	$template->find('.author-facebook')[0]->outertext = '';
+		if ( empty($googleplus) ) 	$template->find('.author-googleplus')[0]->outertext = '';
+
+
+		// Buscar y reemplazar en la plantilla
 		$search		= ['{title}','{avatar}','{description}',
-						'{web}','{twitter}','{google}','{facebook}',
-						'{show-all-author}','{show-all-author-text}','{hide}'];
-
-		$twitter 	= get_the_author_meta( 'twitter' );
+						'{web}','{twitter}','{googleplus}','{facebook}',
+						'{show-all-author-url}','{show-all-author-text}'];
 
 		$replace 	= [];
 		$replace[] 	= get_the_author();
 		$replace[] 	= get_avatar( get_the_author_meta( 'user_email' ) );
 		$replace[] 	= get_the_author_meta( 'description');
-		$replace[]	= get_the_author_meta( 'url' );
+		$replace[]	= $web;
 		$replace[]	= filter_var( $twitter  , FILTER_VALIDATE_URL) ? $twitter : 'https://twitter.com/'.$twitter;
-		$replace[]	= get_the_author_meta( 'googleplus' );
-		$replace[]	= get_the_author_meta( 'facebook' );
+		$replace[]	= $googleplus;
+		$replace[]	= $facebook;
 		$replace[]	= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
-
 		$replace[]	= __('View all posts','dcms_simple_author_bio');
-		$replace[]	= $show_social ? '' : 'style="display:none"';
+
 
 		return str_replace( $search, $replace, $template );
-
 	}
 
 

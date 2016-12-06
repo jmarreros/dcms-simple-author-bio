@@ -1,10 +1,11 @@
 <hr/>
 <div class="author-info">
 
-	<h3 class="author-heading">{title}</h3>
 	<div class="author-avatar">
 		{avatar}
 	</div>
+
+	<h3 class="author-heading">{title}</h3>
 
 	<div class="author-description">
 		{description}
@@ -12,15 +13,15 @@
 
 	<div class="author-footer">
 
-		<div class="author-social" {hide}>
-			<a href="{web}" target="_blank" ><i class="fa fa-link" aria-hidden="true"></i></a>
-			<a href="{twitter}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-			<a href="{google}" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-			<a href="{facebook}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+		<div class="author-social">
+			<a href="{web}" target="_blank" class="author-web"><i class="fa fa-link" aria-hidden="true"></i></a>
+			<a href="{twitter}" target="_blank" class="author-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="{googleplus}" target="_blank" class="author-googleplus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+			<a href="{facebook}" target="_blank" class="author-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 		</div>
 
-		<div class="show-all-author">
-			<a href="{show-all-author}">{show-all-author-text}</a>
+		<div class="author-show-all">
+			<a href="{show-all-author-url}">{show-all-author-text} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 		</div>
 
 	</div>

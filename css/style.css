@@ -4,8 +4,13 @@
 	max-width: 96px;	
 }
 
-.author-description{
+.author-description,
+.author-heading{
 	margin-left: 112px;
+}
+
+.author-heading{
+	margin-bottom: 6px;
 }
 
 .author-footer{
@@ -14,10 +19,38 @@
 	width: 100%;
 }
 
-.show-all-author{
+.author-show-all{
 	float:right;
 }
 
 .author-social{
 	float:left;
+}
+
+.author-social a{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+}
+
+.author-social a i{
+	font-size: 16px;
+	color:white;
+}
+
+.author-web{
+	background-color: #97BC31;
+}
+
+.author-facebook{
+	background-color: #3B5998;
+}
+
+.author-twitter{
+	background-color: #7AC9ED;
+}
+
+.author-googleplus{
+	background-color: #D64D2F;
 }
