@@ -15,9 +15,17 @@
 //if this file is called directly, abort
 if ( ! defined('WPINC') ) die();
 
-require_once plugin_dir_path( __FILE__ ).'includes/class-dcms-simple-author-bio.php';
 
-register_activation_hook( __FILE__, ['Dcms_Simple_Author_Bio','dcms_sab_activate'] );
+//Define constants
+define('DCMS_SAB_PATH_TEMPLATE', plugin_dir_path( __FILE__ ).'/template/box-author-bio.txt');
+define('DCMS_SAB_PATH_INCLUDE',	 plugin_dir_path( __FILE__ ).'includes/');
+define('DCMS_SAB_PATH_LANGUAGE', 'dcms-Simple-Author-Bio/languages');
+define('DCMS_SAB_PATH_PLUGIN',	__FILE__);
+
+
+require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-simple-author-bio.php';
+
+register_activation_hook( PATH_PLUGIN, ['Dcms_Simple_Author_Bio','dcms_sab_activate'] );
 
 new Dcms_Simple_Author_Bio();
 

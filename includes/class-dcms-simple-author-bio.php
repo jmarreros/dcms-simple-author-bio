@@ -1,33 +1,37 @@
 <?php
 
-require_once plugin_dir_path( __FILE__ ).'class-dcms-sab-admin-form.php';
-require_once 'simple_html_dom.php';
-
+require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-admin-form.php';
+require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-contact-methods.php';
+require_once DCMS_SAB_PATH_INCLUDE.'simple_html_dom.php';
 
 class Dcms_Simple_Author_Bio{
 
-	const PATH_TEMPLATE = '../template/box-author-bio.txt'; 
-	const PATH_LANGUAGE = 'dcms-Simple-Author-Bio/languages';
 
 	private $dcms_admin_form;
+	private $dcms_contact_methods;
 	private $dcms_options;
 
 	public function __construct(){
 
-		$this->dcms_admin_form  = new Dcms_Sab_Admin_Form();
-		$this->dcms_options 	= get_option( 'dcms_sab_bd_options' );
+		$this->dcms_admin_form  	= new Dcms_Sab_Admin_Form();
+		$this->dcms_contact_methods = new Dcms_Contact_Methods();
+		$this->dcms_options 		= get_option( 'dcms_sab_bd_options' );
 
-		add_action('init',[$this,'dcms_sab_tranlation']);
-		add_action('admin_menu',[$this,'dcms_sab_add_menu']);
-		add_action('admin_init',[$this->dcms_admin_form,'dcms_sab_admin_init']);
-		add_filter( 'the_content', [$this,'dcms_sab_add_content_bio'] );
+		add_action( 'admin_init', 			[$this->dcms_admin_form,'dcms_sab_admin_init'] );
+		add_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+		add_action( 'init',					[$this, 'dcms_sab_tranlation'] );
+		add_action( 'admin_menu',			[$this,'dcms_sab_add_menu'] );
+		add_filter( 'the_content',			[$this,'dcms_sab_add_content_bio'] );
 
 		add_action( 'wp_enqueue_scripts', [$this,'dcms_sab_load_scripts_css'] );
 	}
 
 
+
+
+
 	/*
-	*  Para cargar los estilos CSS
+	*  Load CSS
 	*/
     public function dcms_sab_load_scripts_css() {
 
@@ -43,7 +47,7 @@ class Dcms_Simple_Author_Bio{
 
 
 	/*
-	*  Creación del item de menú.
+	*  Create item menu plugin
 	*/
 	public function dcms_sab_add_menu(){
 
@@ -57,7 +61,7 @@ class Dcms_Simple_Author_Bio{
 
 
 	/*
-	*  Creamos los controles del plugin
+	*  Create plugin controls
 	*/
 	public function dcms_sab_settings_page(){
 		$this->dcms_admin_form->dcms_sab_create_admin_form();	
@@ -65,7 +69,7 @@ class Dcms_Simple_Author_Bio{
 
 	
 	/*
-	*  Agregamos la información del autor al contenido
+	*  Add info author to content
 	*/
 	public function dcms_sab_add_content_bio( $content ){
 
@@ -89,11 +93,11 @@ class Dcms_Simple_Author_Bio{
 
 
 	/*
-	*  Para reemplazar las cadenas de la plantilla en el archivo box-author-bio.txt
+	*  Replace strings in template box-author-bio.txt
 	*/
 	private function get_author_bio( $show_social, $show_all_posts ){
 		
-		$template = file_get_html( plugin_dir_path( __FILE__ ).self::PATH_TEMPLATE );
+		$template = file_get_html( DCMS_SAB_PATH_TEMPLATE );
 
 		// Validaciones generales
 		if ( empty($template) ) 	return;
@@ -136,17 +140,17 @@ class Dcms_Simple_Author_Bio{
 
 
 	/*
-	*  Para cargar los archivos de traducción Traducciones
+	*  Load traduction
 	*/
 	public function dcms_sab_tranlation(){
 
-		load_plugin_textdomain('dcms-simple-author-bio', false, self::PATH_LANGUAGE );
+		load_plugin_textdomain('dcms-simple-author-bio', false, DCMS_SAB_PATH_LANGUAGE );
 
 	}
 
 
 	/*
-	*  Activación del plugin
+	*  Activation plugin, default values
 	*/
 	public function dcms_sab_activate(){
 			
