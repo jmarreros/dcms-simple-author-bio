@@ -17,17 +17,25 @@ class Dcms_Simple_Author_Bio{
 		$this->dcms_contact_methods = new Dcms_Contact_Methods();
 		$this->dcms_options 		= get_option( 'dcms_sab_bd_options' );
 
-		add_action( 'admin_init', 			[$this->dcms_admin_form,'dcms_sab_admin_init'] );
+		
+		add_filter( 'the_content',			[$this,'dcms_sab_add_content_bio'] );
 		add_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+		
+		add_action( 'admin_init', 			[$this->dcms_admin_form,'dcms_sab_admin_init'] );
 		add_action( 'init',					[$this, 'dcms_sab_tranlation'] );
 		add_action( 'admin_menu',			[$this,'dcms_sab_add_menu'] );
-		add_filter( 'the_content',			[$this,'dcms_sab_add_content_bio'] );
+		add_action( 'wp_enqueue_scripts', 	[$this,'dcms_sab_load_scripts_css'] );
+		add_action( 'customize_save_after', [$this,'dcms_sab_customize_save_after'] );
 
-		add_action( 'wp_enqueue_scripts', [$this,'dcms_sab_load_scripts_css'] );
+		// isset( $this->dcms_options['chk_sab_show_aditional_networks'] );
+
 	}
 
 
 
+	public function dcms_sab_customize_save_after(){
+		return;
+	}
 
 
 	/*
@@ -149,28 +157,31 @@ class Dcms_Simple_Author_Bio{
 	}
 
 
+
 	/*
-	*  Activation plugin, default values
+	*  Activation function
 	*/
 	public function dcms_sab_activate(){
 			
-			delete_option('dcms_sab_bd_options');
+			//delete_option('dcms_sab_bd_options');
 
 			$options 	= get_option('dcms_sab_bd_options');
 
-			// Retorna false cuando no existe, en otros casos siempre retorna un valor asi sea vacío ''
 			if ( is_bool($options) && ! $options ){
 
 			 	$options = [
-			 				'chk_show_social' => 'on',
-			 				'chk_show_view_all'=> 'on',
-☺☻			 				];
+			 				'chk_show_social' 	=> 'on',
+			 				'chk_show_view_all'	=> 'on',
+			 				'chk_load_css'		=> 'on',
+			 				'chk_load_fontawesome'		  => 'on',
+			 				'chk_show_aditional_networks' => 'on',
+	☺☻			 				];
 
 				update_option('dcms_sab_bd_options',$options);
 
 			}
 	}
 
-
+	
 }
 

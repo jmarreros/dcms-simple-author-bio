@@ -25,7 +25,8 @@ define('DCMS_SAB_PATH_PLUGIN',	__FILE__);
 
 require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-simple-author-bio.php';
 
-register_activation_hook( PATH_PLUGIN, ['Dcms_Simple_Author_Bio','dcms_sab_activate'] );
+register_activation_hook( DCMS_SAB_PATH_PLUGIN, ['Dcms_Simple_Author_Bio','dcms_sab_activate'] );
 
 new Dcms_Simple_Author_Bio();
+
 
