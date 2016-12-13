@@ -26,5 +26,8 @@ class Dcms_Contact_Methods{
 		return $user_contact;
 	}
 
+	public function dcms_sab_remove_social_fields( $user_contat ){
+		
+	}
 
 }

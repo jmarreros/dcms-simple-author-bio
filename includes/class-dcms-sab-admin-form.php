@@ -39,7 +39,7 @@ class Dcms_Sab_Admin_Form{
 		// Basic
 		add_settings_section('dcms_sab_basic_section', 
 							__('Basic Configuration','dcms-simple-author-bio'), 
-							[$this,'dcms_sab_section_callback'], 
+							[$this,'dcms_sab_section_callback_basic'], 
 							'dcms_sab_options' );
 
 		// Advanced
@@ -50,37 +50,32 @@ class Dcms_Sab_Admin_Form{
 
 		// Fields
 		$this->dcms_sab_add_setting_field( __('Hide author without description','dcms-simple-author-bio'), 
-											'chk_hide_author', 
+											'dcms_sab_chk_hide_author', 
 											'dcms_sab_basic_section',
 											__('You can fill this info in your profile','dcms-simple-author-bio'));
 
 		$this->dcms_sab_add_setting_field( __('Show social network box','dcms-simple-author-bio'), 
-											'chk_show_social', 
+											'dcms_sab_chk_show_social', 
 											'dcms_sab_basic_section',
 											__('Show/hide social icons in front-end','dcms-simple-author-bio'));
 
-		$this->dcms_sab_add_setting_field( __('Enable additional networks','dcms-simple-author-bio'), 
-											'chk_show_aditional_networks', 
-											'dcms_sab_basic_section', 
-											__('You can see these in your profile','dcms-simple-author-bio'));
-
 		$this->dcms_sab_add_setting_field( __('Show link view all posts','dcms-simple-author-bio'), 
-											'chk_show_view_all', 
+											'dcms_sab_chk_show_view_all', 
 											'dcms_sab_basic_section',
 											__('It shows/hide a link in the front-end','dcms-simple-author-bio'));
 		
 		$this->dcms_sab_add_setting_field( __('Load FontAwesome','dcms-simple-author-bio'), 
-											'chk_load_fontawesome', 
+											'dcms_sab_chk_load_fontawesome', 
 											'dcms_sab_advanced_section',
 											__('If your theme load FontAwesome uncheck this','dcms-simple-author-bio'));
 		
 		$this->dcms_sab_add_setting_field( __('Load Default CSS','dcms-simple-author-bio'), 
-											'chk_load_css', 
+											'dcms_sab_chk_load_css', 
 											'dcms_sab_advanced_section',
 											__('Default CSS plugin','dcms-simple-author-bio'));
 		
 		$this->dcms_sab_add_setting_field( __('Custom CSS','dcms-simple-author-bio'), 
-											'txtarea_customcss', 
+											'dcms_sab_txtarea_customcss', 
 											'dcms_sab_advanced_section',
 											'',	
 											'textarea');
@@ -127,6 +122,10 @@ class Dcms_Sab_Admin_Form{
 		echo '<hr/>';
 	}
 
+	public function dcms_sab_section_callback_basic(){
+		echo '<hr/>';
+		echo '<span>'.__('You can see additional social networks in your profile', 'dcms-simple-author-bio').'</span>';
+	}
 
 }
 

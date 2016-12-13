@@ -3,6 +3,7 @@
 require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-admin-form.php';
 require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-contact-methods.php';
 require_once DCMS_SAB_PATH_INCLUDE.'simple_html_dom.php';
+// require_once DCMS_SAB_PATH_INCLUDE.'lib/FirePHPCore/fb.php';
 
 class Dcms_Simple_Author_Bio{
 
@@ -22,19 +23,10 @@ class Dcms_Simple_Author_Bio{
 		add_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
 		
 		add_action( 'admin_init', 			[$this->dcms_admin_form,'dcms_sab_admin_init'] );
-		add_action( 'init',					[$this, 'dcms_sab_tranlation'] );
+		add_action( 'init',					[$this,'dcms_sab_tranlation'] );
 		add_action( 'admin_menu',			[$this,'dcms_sab_add_menu'] );
 		add_action( 'wp_enqueue_scripts', 	[$this,'dcms_sab_load_scripts_css'] );
-		add_action( 'customize_save_after', [$this,'dcms_sab_customize_save_after'] );
 
-		// isset( $this->dcms_options['chk_sab_show_aditional_networks'] );
-
-	}
-
-
-
-	public function dcms_sab_customize_save_after(){
-		return;
 	}
 
 
@@ -163,19 +155,18 @@ class Dcms_Simple_Author_Bio{
 	*/
 	public function dcms_sab_activate(){
 			
-			//delete_option('dcms_sab_bd_options');
+			// delete_option('dcms_sab_bd_options');
 
 			$options 	= get_option('dcms_sab_bd_options');
 
 			if ( is_bool($options) && ! $options ){
 
 			 	$options = [
-			 				'chk_show_social' 	=> 'on',
-			 				'chk_show_view_all'	=> 'on',
-			 				'chk_load_css'		=> 'on',
-			 				'chk_load_fontawesome'		  => 'on',
-			 				'chk_show_aditional_networks' => 'on',
-	☺☻			 				];
+			 				'dcms_sab_chk_show_social' 		=> 'on',
+			 				'dcms_sab_chk_show_view_all'	=> 'on',
+			 				'dcms_sab_chk_load_css'			=> 'on',
+			 				'dcms_sab_chk_load_fontawesome'	=> 'on',
+	☺☻			 			];
 
 				update_option('dcms_sab_bd_options',$options);
 
@@ -184,4 +175,59 @@ class Dcms_Simple_Author_Bio{
 
 	
 }
+
+
+
+
+	// add_action( 'update_option_dcms_sab_bd_options', [$this,'dcms_sab_customize_save_after']);
+
+	// /*
+	// * After each save, validate and unfilter user_contactmethods
+	// */
+	// public function dcms_sab_customize_save_after(){
+
+	// 	$this->dcms_options 		= get_option( 'dcms_sab_bd_options' );
+
+	// 	$show_additional_networks 	= isset( $this->dcms_options['dcms_sab_chk_show_aditional_networks'] );
+	// 	$has_filter_contactmethods 	= has_filter( 'user_contactmethods', [$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+
+	// 	remove_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+
+
+	// 	// if ( $show_additional_networks && ! $has_filter_contactmethods ){
+	// 	// 	add_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+	// 	// }
+	// 	// elseif ( ! $show_additional_networks && $has_filter_contactmethods ){
+	// 	// 	remove_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+	// 	// }
+
+
+	// 	$has_filter_contactmethods 	= has_filter( 'user_contactmethods', [$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+
+
+	// 	$fp = fopen("D:\\Programas\\Ampps\\www\\encurso.app\\wordpress461\\wp-content\\plugins\\dcms-Simple-Author-Bio\\includes\\prueba.txt", 'w');
+	// 	fwrite($fp, $show_additional_networks.'-'.$has_filter_contactmethods);
+	// 	fclose($fp);
+
+
+	// 	// $firephp = FirePHP::getInstance(true);
+	// 	// $firephp->fb('Hello World'); 
+
+
+	// 	// $firephp = FirePHP::getInstance(true);
+	// 	// $firephp->fb('Hello World'); 
+
+	// 	// return false;
+	// 	// error_log('Mensaje de prueba de error');
+	// 	// echo " show_additional_networks : ".$show_additional_networks;
+	// 	// echo " has_filter_contactmethods: ".$has_filter_contactmethods;
+
+	// 	// if ( ! $show_additional_networks ){
+	// 	// 	remove_filter( 'user_contactmethods', [ $this->dcms_contact_methods,'dcms_sab_add_social_fields' ] );
+	// 	// }
+	// 	// elseif ( !){
+	// 	// 		add_filter( 'user_contactmethods', 	[ $this->dcms_contact_methods,'dcms_sab_add_social_fields' ] );
+	// 	// }
+		
+	// }
 

@@ -29,4 +29,3 @@ register_activation_hook( DCMS_SAB_PATH_PLUGIN, ['Dcms_Simple_Author_Bio','dcms_
 
 new Dcms_Simple_Author_Bio();
 
-
