@@ -3,7 +3,7 @@
 require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-admin-form.php';
 require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-contact-methods.php';
 require_once DCMS_SAB_PATH_INCLUDE.'simple_html_dom.php';
-// require_once DCMS_SAB_PATH_INCLUDE.'lib/FirePHPCore/fb.php';
+require_once DCMS_SAB_PATH_INCLUDE.'lib/FirePHPCore/fb.php';
 
 class Dcms_Simple_Author_Bio{
 
@@ -18,14 +18,14 @@ class Dcms_Simple_Author_Bio{
 		$this->dcms_contact_methods = new Dcms_Contact_Methods();
 		$this->dcms_options 		= get_option( 'dcms_sab_bd_options' );
 
-		
-		add_filter( 'the_content',			[$this,'dcms_sab_add_content_bio'] );
-		add_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
-		
+			
 		add_action( 'admin_init', 			[$this->dcms_admin_form,'dcms_sab_admin_init'] );
 		add_action( 'init',					[$this,'dcms_sab_tranlation'] );
 		add_action( 'admin_menu',			[$this,'dcms_sab_add_menu'] );
 		add_action( 'wp_enqueue_scripts', 	[$this,'dcms_sab_load_scripts_css'] );
+
+		add_filter( 'the_content',			[$this,'dcms_sab_add_content_bio'] );
+		add_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
 
 	}
 
@@ -35,11 +35,11 @@ class Dcms_Simple_Author_Bio{
 	*/
     public function dcms_sab_load_scripts_css() {
 
-    	if ( isset( $this->dcms_options['chk_load_fontawesome'] ) ){
+    	if ( isset( $this->dcms_options['dcms_sab_chk_load_fontawesome'] ) ){
         	wp_enqueue_style( 'sab_font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
     	}
 
-    	if ( isset( $this->dcms_options['chk_load_css'] ) ){
+    	if ( isset( $this->dcms_options['dcms_sab_chk_load_css'] ) ){
         	wp_enqueue_style( 'sab_custom_css', plugins_url( '../css/style.css', __FILE__ )  );
     	}
     
@@ -75,10 +75,12 @@ class Dcms_Simple_Author_Bio{
 
 		if ( is_single() ){
 
-			$hide_author	= isset( $this->dcms_options['chk_hide_author'] );
+			remove_filter( current_filter(), __FUNCTION__ );
 
-			$show_all_posts	= isset( $this->dcms_options['chk_show_view_all'] );
-			$show_social 	= isset( $this->dcms_options['chk_show_social'] );
+			$hide_author	= isset( $this->dcms_options['dcms_sab_chk_hide_author'] );
+
+			$show_all_posts	= isset( $this->dcms_options['dcms_sab_chk_show_view_all'] );
+			$show_social 	= isset( $this->dcms_options['dcms_sab_chk_show_social'] );
 
 			
 			if ( get_the_author_meta('description') == '' &&  $hide_author ){
@@ -99,41 +101,46 @@ class Dcms_Simple_Author_Bio{
 		
 		$template = file_get_html( DCMS_SAB_PATH_TEMPLATE );
 
-		// Validaciones generales
+		// General validation
 		if ( empty($template) ) 	return;
-
 		if ( ! $show_social ) 		$template->find('.author-social')[0]->outertext = '';
 		if ( ! $show_all_posts )	$template->find('.author-show-all')[0]->outertext = '';
 
 
-		// Validaciones para mostrar/ocultar las redes sociales individualmente
-		$web		= get_the_author_meta('url');
-		$twitter 	= get_the_author_meta('twitter');
-		$facebook	= get_the_author_meta('facebook');
-		$googleplus	= get_the_author_meta('googleplus');
+		// Geto social networks
+		$social_networks = $this->dcms_contact_methods->dcms_sab_social;
+		
+		foreach ( $social_networks as $key => $value){
+			// Convert string name to var 
+			$$key = get_the_author_meta($key);
 
-		if ( empty($web) ) 			$template->find('.author-web')[0]->outertext = '';
-		if ( empty($twitter) ) 		$template->find('.author-twitter')[0]->outertext = '';
-		if ( empty($facebook) ) 	$template->find('.author-facebook')[0]->outertext = '';
-		if ( empty($googleplus) ) 	$template->find('.author-googleplus')[0]->outertext = '';
-
+			// Validate
+			if ( empty($$key) ){
+				$template->find('.author-'.$key)[0]->outertext = '';
+			}
+		}
 
 		// Buscar y reemplazar en la plantilla
 		$search		= ['{title}','{avatar}','{description}',
-						'{web}','{twitter}','{googleplus}','{facebook}',
+						'{url}','{twitter}','{googleplus}','{facebook}',
+						'{github}','{linkedin}','{pinterest}','{youtube}','{instagram}',
 						'{show-all-author-url}','{show-all-author-text}'];
 
 		$replace 	= [];
 		$replace[] 	= get_the_author();
 		$replace[] 	= get_avatar( get_the_author_meta( 'user_email' ) );
 		$replace[] 	= get_the_author_meta( 'description');
-		$replace[]	= $web;
+		$replace[]	= $url;
 		$replace[]	= filter_var( $twitter  , FILTER_VALIDATE_URL) ? $twitter : 'https://twitter.com/'.$twitter;
 		$replace[]	= $googleplus;
 		$replace[]	= $facebook;
+		$replace[]	= $github;
+		$replace[]	= $linkedin;
+		$replace[]	= $pinterest;
+		$replace[]	= $youtube;
+		$replace[]	= $instagram;
 		$replace[]	= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
 		$replace[]	= __('View all posts','dcms_simple_author_bio');
-
 
 		return str_replace( $search, $replace, $template );
 	}

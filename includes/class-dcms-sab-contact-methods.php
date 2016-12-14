@@ -2,7 +2,8 @@
 
 class Dcms_Contact_Methods{
 
-	private $dcms_sab_social =[
+	public $dcms_sab_social =[
+		'url'			=> 'Web',
         'twitter'       => 'Twitter',
         'googleplus'    => 'Google Plus',
         'facebook'      => 'Facebook',
@@ -20,14 +21,15 @@ class Dcms_Contact_Methods{
 	public function dcms_sab_add_social_fields( $user_contact ){
 		
 		foreach ( $this->dcms_sab_social as $key => $value ) {
-			$user_contact[$key] = $value;
+			
+			if ( $key != 'url' ){
+				$user_contact[$key] = $value;
+			}
+
 		}
 		
 		return $user_contact;
 	}
 
-	public function dcms_sab_remove_social_fields( $user_contat ){
-		
-	}
 
 }

@@ -1,3 +1,10 @@
+.author-info{
+	background-color:#F2F2F2;
+	padding:15px;
+	margin: 10px auto 10px;
+	border: 1px solid #ddd;
+}
+
 .author-avatar .avatar{
 	border-radius: 50%;
 	float: left;
@@ -17,6 +24,12 @@
 	padding-top: 16px;
 	clear: both;
 	width: 100%;
+}
+
+.author-footer:after{
+	content:'';
+	display: block;
+	clear:both;
 }
 
 .author-show-all{
@@ -39,18 +52,54 @@
 	color:white;
 }
 
-.author-web{
-	background-color: #97BC31;
+.author-url,
+.author-github{
+	background-color:#97BC31;
 }
 
 .author-facebook{
-	background-color: #3B5998;
+	background-color:#3B5998;
 }
 
 .author-twitter{
-	background-color: #7AC9ED;
+	background-color:#7AC9ED;
 }
 
 .author-googleplus{
-	background-color: #D64D2F;
+	background-color:#D64D2F;
+}
+
+.author-linkedin{
+	background-color:#1686B0;
+}
+
+.author-pinterest{
+	background-color:#CB2027;
+}
+
+.author-youtube{
+	background-color:#CB1E22;
+}
+
+.author-instagram{
+	background-color:#050707;
+}
+
+@media(max-width: 678px){
+	.author-description, 
+	.author-heading,
+	.author-avatar,
+	.author-avatar .avatar,
+	.author-show-all,
+	.author-social{
+		float: none;
+		width:100%;
+		margin: auto;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.author-description{
+		text-align: left;
+	}
 }

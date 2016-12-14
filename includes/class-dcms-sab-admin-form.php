@@ -45,7 +45,7 @@ class Dcms_Sab_Admin_Form{
 		// Advanced
 		add_settings_section('dcms_sab_advanced_section', 
 							__('Advanced Configuration','dcms-simple-author-bio'), 
-							[$this, 'dcms_sab_section_callback'], 
+							[$this, 'dcms_sab_section_callback_advanced'], 
 							'dcms_sab_options' );
 
 		// Fields
@@ -118,7 +118,7 @@ class Dcms_Sab_Admin_Form{
 	}
 
 
-	public function dcms_sab_section_callback(){
+	public function dcms_sab_section_callback_advanced(){
 		echo '<hr/>';
 	}
 
