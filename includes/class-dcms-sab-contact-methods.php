@@ -11,7 +11,8 @@ class Dcms_Contact_Methods{
         'linkedin'      => 'Linkedin',
         'pinterest'     => 'Pinterest',   
       	'youtube'		=> 'YouTube',
-        'instagram'     => 'Instagram'
+      	 'whatsapp'		=> 'whatsapp',
+        'instagram'     => 'Instagram',
 	];
 
 

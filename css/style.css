@@ -41,10 +41,13 @@
 }
 
 .author-social a{
+	text-align: center;
+	text-decoration: none;
+	background-color: black;
 	display: inline-block;
+	box-shadow:none!important;
 	width: 24px;
 	height: 24px;
-	text-align: center;
 }
 
 .author-social a i{
@@ -52,36 +55,37 @@
 	color:white;
 }
 
-.author-url,
-.author-github{
+
+.author-social .author-url,
+.author-social .author-github{
 	background-color:#97BC31;
 }
 
-.author-facebook{
+.author-social .author-facebook{
 	background-color:#3B5998;
 }
 
-.author-twitter{
+.author-social .author-twitter{
 	background-color:#7AC9ED;
 }
 
-.author-googleplus{
+.author-social .author-googleplus{
 	background-color:#D64D2F;
 }
 
-.author-linkedin{
+.author-social .author-linkedin{
 	background-color:#1686B0;
 }
 
-.author-pinterest{
+.author-social .author-pinterest{
 	background-color:#CB2027;
 }
 
-.author-youtube{
+.author-social .author-youtube{
 	background-color:#CB1E22;
 }
 
-.author-instagram{
+.author-social .author-instagram{
 	background-color:#050707;
 }
 

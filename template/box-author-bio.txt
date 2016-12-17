@@ -22,7 +22,7 @@
 			<a href="{pinterest}" target="_blank" class="author-pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
 			<a href="{linkedin}" target="_blank" class="author-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 			<a href="{youtube}" target="_blank" class="author-youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-			<a href="{instagram}" target="_blank" class="author-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+			<a href="{instagram}" target="_blank" class="author-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>			
 		</div>
 
 		<div class="author-show-all">

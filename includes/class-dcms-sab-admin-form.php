@@ -73,12 +73,7 @@ class Dcms_Sab_Admin_Form{
 											'dcms_sab_chk_load_css', 
 											'dcms_sab_advanced_section',
 											__('Default CSS plugin','dcms-simple-author-bio'));
-		
-		$this->dcms_sab_add_setting_field( __('Custom CSS','dcms-simple-author-bio'), 
-											'dcms_sab_txtarea_customcss', 
-											'dcms_sab_advanced_section',
-											'',	
-											'textarea');
+
 	}
 
 
@@ -93,15 +88,6 @@ class Dcms_Sab_Admin_Form{
 		
 		if ( !empty($msg) ) echo ' <i>'.$msg.'</i>';
 
-	}
-
-
-	public function dcms_sab_textarea_fields( $args ){
-
-		$field 		 = $args[0];
-		$field_value = $this->options[$field];
-
-		echo '<textarea cols="80" rows="8" id="'.$field.'" name="dcms_sab_bd_options['.$field.']" >'.$field_value.'</textarea>';
 	}
 
 
