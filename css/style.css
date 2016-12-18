@@ -3,17 +3,20 @@
 	padding:15px;
 	margin: 10px auto 10px;
 	border: 1px solid #ddd;
+	border-radius: 5px;
 }
 
 .author-avatar .avatar{
 	border-radius: 50%;
+	max-width: 96px;
 	float: left;
-	max-width: 96px;	
 }
 
 .author-description,
 .author-heading{
-	margin-left: 112px;
+	clear: none;
+	margin: 4px 0 4px 112px;
+	padding:0;
 }
 
 .author-heading{

@@ -1,8 +1,8 @@
 <?php
  /*
- * Plugin Name:       DCMS Simple Author Bio
+ * Plugin Name:       Simple Author Bio
  * Plugin URI:        https://decodecms.com
- * Description:       This plugins shows the bio in articles
+ * Description:       This plugin shows the author's biography in articles
  * Version:           1.0.0
  * Author:            Jhon Marreros Guzmán
  * Author URI:        https://decodecms.com

@@ -57,22 +57,22 @@ class Dcms_Sab_Admin_Form{
 		$this->dcms_sab_add_setting_field( __('Show social network box','dcms-simple-author-bio'), 
 											'dcms_sab_chk_show_social', 
 											'dcms_sab_basic_section',
-											__('Show/hide social icons in front-end','dcms-simple-author-bio'));
+											__('social icons in front-end','dcms-simple-author-bio'));
 
 		$this->dcms_sab_add_setting_field( __('Show link view all posts','dcms-simple-author-bio'), 
 											'dcms_sab_chk_show_view_all', 
 											'dcms_sab_basic_section',
-											__('It shows/hide a link in the front-end','dcms-simple-author-bio'));
+											__('author\'s posts link in front-end','dcms-simple-author-bio'));
 		
 		$this->dcms_sab_add_setting_field( __('Load FontAwesome','dcms-simple-author-bio'), 
 											'dcms_sab_chk_load_fontawesome', 
 											'dcms_sab_advanced_section',
-											__('If your theme load FontAwesome uncheck this','dcms-simple-author-bio'));
+											__('If your theme loads FontAwesome uncheck this','dcms-simple-author-bio'));
 		
 		$this->dcms_sab_add_setting_field( __('Load Default CSS','dcms-simple-author-bio'), 
 											'dcms_sab_chk_load_css', 
 											'dcms_sab_advanced_section',
-											__('Default CSS plugin','dcms-simple-author-bio'));
+											__('Default CSS file plugin','dcms-simple-author-bio'));
 
 	}
 
@@ -106,11 +106,12 @@ class Dcms_Sab_Admin_Form{
 
 	public function dcms_sab_section_callback_advanced(){
 		echo '<hr/>';
+		echo '<span><span class="dashicons dashicons-arrow-right"></span>'.sprintf(__('You can modify the template: %s', 'dcms-simple-author-bio'),'  /wp-content/plugins/dcms_simple_author_bio/template/box-author-bio.txt').'</span>';
 	}
 
 	public function dcms_sab_section_callback_basic(){
 		echo '<hr/>';
-		echo '<span>'.__('You can see additional social networks in your profile', 'dcms-simple-author-bio').'</span>';
+		echo '<span><span class="dashicons dashicons-arrow-right"></span>'.__('You can see additional social networks in your profile', 'dcms-simple-author-bio').'</span>';
 	}
 
 }
