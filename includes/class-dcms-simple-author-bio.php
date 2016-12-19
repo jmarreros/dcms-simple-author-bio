@@ -116,8 +116,8 @@ class Dcms_Simple_Author_Bio{
 		// General validation
 		if ( empty($template) ) 	return;
 
-		if ( ! $show_all_posts )	$template->find('.author-show-all')[0]->outertext = '';
-		if ( ! $show_social ) 		$template->find('.author-social')[0]->outertext = '';
+		if ( ! $show_all_posts )	$template->find('.dcms_author-show-all')[0]->outertext = '';
+		if ( ! $show_social ) 		$template->find('.dcms_author-social')[0]->outertext = '';
 
 
 		$search		= ['{title}','{avatar}','{description}'];

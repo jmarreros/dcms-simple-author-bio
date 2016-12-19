@@ -1,4 +1,4 @@
-.author-info{
+.dcms_author-info{
 	background-color:#F2F2F2;
 	padding:15px;
 	margin: 10px auto 10px;
@@ -6,99 +6,100 @@
 	border-radius: 5px;
 }
 
-.author-avatar .avatar{
+.dcms_author-avatar .avatar{
 	border-radius: 50%;
 	max-width: 96px;
 	float: left;
 }
 
-.author-description,
-.author-heading{
+.dcms_author-info .dcms_author-description,
+.dcms_author-info .dcms_author-heading{
 	clear: none;
 	margin: 4px 0 4px 112px;
 	padding:0;
 }
 
-.author-heading{
+.dcms_author-info .dcms_author-heading{
 	margin-bottom: 6px;
 }
 
-.author-footer{
+.dcms_author-footer{
 	padding-top: 16px;
 	clear: both;
 	width: 100%;
 }
 
-.author-footer:after{
+.dcms_author-footer:after{
 	content:'';
 	display: block;
 	clear:both;
 }
 
-.author-show-all{
+.dcms_author-show-all{
 	float:right;
 }
 
-.author-social{
+.dcms_author-social{
 	float:left;
 }
 
-.author-social a{
+.dcms_author-social a{
 	text-align: center;
 	text-decoration: none;
 	background-color: black;
 	display: inline-block;
 	box-shadow:none!important;
+	border: none!important;
 	width: 24px;
-	height: 24px;
+	height: auto;
 }
 
-.author-social a i{
+.dcms_author-social a i{
 	font-size: 16px;
 	color:white;
 }
 
 
-.author-social .author-url,
-.author-social .author-github{
+.dcms_author-social .author-url,
+.dcms_author-social .author-github{
 	background-color:#97BC31;
 }
 
-.author-social .author-facebook{
+.dcms_author-social .author-facebook{
 	background-color:#3B5998;
 }
 
-.author-social .author-twitter{
+.dcms_author-social .author-twitter{
 	background-color:#7AC9ED;
 }
 
-.author-social .author-googleplus{
+.dcms_author-social .author-googleplus{
 	background-color:#D64D2F;
 }
 
-.author-social .author-linkedin{
+.dcms_author-social .author-linkedin{
 	background-color:#1686B0;
 }
 
-.author-social .author-pinterest{
+.dcms_author-social .author-pinterest{
 	background-color:#CB2027;
 }
 
-.author-social .author-youtube{
+.dcms_author-social .author-youtube{
 	background-color:#CB1E22;
 }
 
-.author-social .author-instagram{
+.dcms_author-social .author-instagram{
 	background-color:#050707;
 }
 
 @media(max-width: 678px){
-	.author-description, 
-	.author-heading,
-	.author-avatar,
-	.author-avatar .avatar,
-	.author-show-all,
-	.author-social{
+	.dcms_author-info .dcms_author-description, 
+	.dcms_author-info .dcms_author-heading,
+	.dcms_author-avatar,
+	.dcms_author-avatar .avatar,
+	.dcms_author-show-all,
+	.dcms_author-social{
 		float: none;
 		width:100%;
 		margin: auto;
@@ -106,7 +107,9 @@
 		margin-bottom: 10px;
 	}
 
-	.author-description{
+	.dcms_author-info .dcms_author-description{
 		text-align: left;
 	}
+
 }
+

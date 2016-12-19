@@ -1,19 +1,19 @@
 <hr/>
-<div class="author-info">
+<div class="dcms_author-info">
 
-	<div class="author-avatar">
+	<div class="dcms_author-avatar">
 		{avatar}
 	</div>
 
-	<h3 class="author-heading">{title}</h3>
+	<h3 class="dcms_author-heading">{title}</h3>
 
-	<div class="author-description">
+	<div class="dcms_author-description">
 		{description}
 	</div>
 
-	<div class="author-footer">
+	<div class="dcms_author-footer">
 
-		<div class="author-social">
+		<div class="dcms_author-social">
 			<a href="{url}" target="_blank" class="author-url"><i class="fa fa-link" aria-hidden="true"></i></a>
 			<a href="{twitter}" target="_blank" class="author-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			<a href="{googleplus}" target="_blank" class="author-googleplus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
@@ -25,7 +25,7 @@
 			<a href="{instagram}" target="_blank" class="author-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>			
 		</div>
 
-		<div class="author-show-all">
+		<div class="dcms_author-show-all">
 			<a href="{show-all-author-url}">{show-all-author-text} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 		</div>
 

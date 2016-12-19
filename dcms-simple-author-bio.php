@@ -19,7 +19,7 @@ if ( ! defined('WPINC') ) die();
 //Define constants
 define('DCMS_SAB_PATH_TEMPLATE', plugin_dir_path( __FILE__ ).'/template/box-author-bio.txt');
 define('DCMS_SAB_PATH_INCLUDE',	 plugin_dir_path( __FILE__ ).'includes/');
-define('DCMS_SAB_PATH_LANGUAGE', 'dcms-Simple-Author-Bio/languages');
+define('DCMS_SAB_PATH_LANGUAGE', 'dcms-simple-author-bio/languages');
 define('DCMS_SAB_PATH_PLUGIN',	__FILE__);
 
 
