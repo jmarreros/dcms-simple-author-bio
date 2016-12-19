@@ -17,7 +17,6 @@ class Dcms_Simple_Author_Bio{
 		$this->dcms_contact_methods = new Dcms_Contact_Methods();
 		$this->dcms_options 		= get_option( 'dcms_sab_bd_options' );
 
-			
 		add_action( 'admin_init', 			[$this->dcms_admin_form,'dcms_sab_admin_init'] );
 		add_action( 'init',					[$this,'dcms_sab_tranlation'] );
 		add_action( 'admin_menu',			[$this,'dcms_sab_add_menu'] );
@@ -26,6 +25,8 @@ class Dcms_Simple_Author_Bio{
 		add_filter( 'the_content',			[$this,'dcms_sab_add_content_bio'] );
 		add_filter( 'plugin_action_links_'. plugin_basename(DCMS_SAB_PATH_PLUGIN),  [$this,'dcms_sab_add_link_settings']);
 		add_filter( 'user_contactmethods', 	[$this->dcms_contact_methods,'dcms_sab_add_social_fields'] );
+
+		register_activation_hook( DCMS_SAB_PATH_PLUGIN, [ $this, 'dcms_sab_activate' ] );
 
 	}
 
@@ -176,11 +177,11 @@ class Dcms_Simple_Author_Bio{
 	*/
 	public function dcms_sab_activate(){
 			
-			// delete_option('dcms_sab_bd_options');
+			//delete_option('dcms_sab_bd_options');
 
 			$options 	= get_option('dcms_sab_bd_options');
 
-			if ( is_bool($options) && ! $options ){
+			if ( empty($options) ){
 
 			 	$options = [
 			 				'dcms_sab_chk_show_social' 		=> 'on',
