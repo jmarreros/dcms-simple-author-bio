@@ -103,6 +103,8 @@ class Dcms_Simple_Author_Bio{
 			return $content.$this->get_author_bio( $show_social, $show_all_posts );
 
 		}
+		
+		return $content // If we are a page, we need content back.
 
 	}
 
