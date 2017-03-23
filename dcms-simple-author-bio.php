@@ -3,7 +3,7 @@
  * Plugin Name:       Simple Author Bio
  * Plugin URI:        https://decodecms.com
  * Description:       This plugin shows the author's biography in articles
- * Version:           1.0.0
+ * Version:           1.0.2
  * Author:            Jhon Marreros Guzmán
  * Author URI:        https://decodecms.com
  * License:           GPL-2.0+
@@ -19,7 +19,7 @@ if ( ! defined('WPINC') ) die();
 //Define constants
 define('DCMS_SAB_PATH_TEMPLATE', plugin_dir_path( __FILE__ ).'/template/box-author-bio.txt');
 define('DCMS_SAB_PATH_INCLUDE',	 plugin_dir_path( __FILE__ ).'includes/');
-define('DCMS_SAB_PATH_LANGUAGE', 'dcms-simple-author-bio/languages');
+define('DCMS_SAB_PATH_LANGUAGE', 'simple-author-bio/languages');
 define('DCMS_SAB_PATH_PLUGIN',	__FILE__);
 
 

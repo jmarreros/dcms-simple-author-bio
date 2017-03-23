@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 class Dcms_Contact_Methods{
 
 	public $dcms_sab_social =[

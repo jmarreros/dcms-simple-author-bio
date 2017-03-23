@@ -1,7 +1,7 @@
 === Simple Author Bio ===
 Contributors: jmarreros
 Donate link: https://decodecms.com/
-Tags: autor, biography
+Tags: author bio, author biography, biography, bio, author, social author
 Requires at least: 4.x
 Tested up to: 4.7
 Stable tag: 4.6
@@ -35,6 +35,12 @@ or install the plugin through the WordPress plugins screen directly.
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed Pages not showing
+
+= 1.0.1 =
+* Security, restriction direct access to files added
 
 = 1.0 =
 * stable version.
