@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-admin-form.php';
 require_once DCMS_SAB_PATH_INCLUDE.'class-dcms-sab-contact-methods.php';
 require_once DCMS_SAB_PATH_INCLUDE.'simple_html_dom.php';
