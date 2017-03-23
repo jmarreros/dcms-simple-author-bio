@@ -104,7 +104,7 @@ class Dcms_Simple_Author_Bio{
 
 		}
 		
-		return $content // If we are a page, we need content back.
+		return $content;
 
 	}
 
