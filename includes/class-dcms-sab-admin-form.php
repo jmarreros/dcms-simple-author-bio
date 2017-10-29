@@ -14,7 +14,7 @@ class Dcms_Sab_Admin_Form{
 		?>
 		<div class="wrap">
 
-			<h2><?php _e('Simple Author Bio','dcms-simple-author-bio') ?></h2>
+			<h2><?php _e('Simple Author Bio','simple-author-bio') ?></h2>
 			
 			<form action="options.php" method="post">
 				<?php
@@ -39,41 +39,41 @@ class Dcms_Sab_Admin_Form{
 		
 		// Basic
 		add_settings_section('dcms_sab_basic_section', 
-							__('Basic Configuration','dcms-simple-author-bio'), 
+							__('Basic Configuration','simple-author-bio'), 
 							[$this,'dcms_sab_section_callback_basic'], 
 							'dcms_sab_options' );
 
 		// Advanced
 		add_settings_section('dcms_sab_advanced_section', 
-							__('Advanced Configuration','dcms-simple-author-bio'), 
+							__('Advanced Configuration','simple-author-bio'), 
 							[$this, 'dcms_sab_section_callback_advanced'], 
 							'dcms_sab_options' );
 
 		// Fields
-		$this->dcms_sab_add_setting_field( __('Hide author without description','dcms-simple-author-bio'), 
+		$this->dcms_sab_add_setting_field( __('Hide author without description','simple-author-bio'), 
 											'dcms_sab_chk_hide_author', 
 											'dcms_sab_basic_section',
-											__('You can fill this info in your profile','dcms-simple-author-bio'));
+											__('You can fill this info in your profile','simple-author-bio'));
 
-		$this->dcms_sab_add_setting_field( __('Show social network box','dcms-simple-author-bio'), 
+		$this->dcms_sab_add_setting_field( __('Show social network box','simple-author-bio'), 
 											'dcms_sab_chk_show_social', 
 											'dcms_sab_basic_section',
-											__('social icons in front-end','dcms-simple-author-bio'));
+											__('social icons in front-end','simple-author-bio'));
 
-		$this->dcms_sab_add_setting_field( __('Show link view all posts','dcms-simple-author-bio'), 
+		$this->dcms_sab_add_setting_field( __('Show link view all posts','simple-author-bio'), 
 											'dcms_sab_chk_show_view_all', 
 											'dcms_sab_basic_section',
-											__('author\'s posts link in front-end','dcms-simple-author-bio'));
+											__('author\'s posts link in front-end','simple-author-bio'));
 		
-		$this->dcms_sab_add_setting_field( __('Load FontAwesome','dcms-simple-author-bio'), 
+		$this->dcms_sab_add_setting_field( __('Load FontAwesome','simple-author-bio'), 
 											'dcms_sab_chk_load_fontawesome', 
 											'dcms_sab_advanced_section',
-											__('If your theme loads FontAwesome uncheck this','dcms-simple-author-bio'));
+											__('If your theme loads FontAwesome uncheck this','simple-author-bio'));
 		
-		$this->dcms_sab_add_setting_field( __('Load Default CSS','dcms-simple-author-bio'), 
+		$this->dcms_sab_add_setting_field( __('Load Default CSS','simple-author-bio'), 
 											'dcms_sab_chk_load_css', 
 											'dcms_sab_advanced_section',
-											__('Default CSS file plugin','dcms-simple-author-bio'));
+											__('Default CSS file plugin','simple-author-bio'));
 
 	}
 
@@ -96,7 +96,7 @@ class Dcms_Sab_Admin_Form{
 
 		add_settings_field('dcms_sab_fields_'.$field_name, 
 
-							__( $field_text ,'dcms-simple-author-bio'), 
+							__( $field_text ,'simple-author-bio'), 
 
 							[$this,'dcms_sab_'.$type.'_fields'], 
 							'dcms_sab_options', 
@@ -107,12 +107,12 @@ class Dcms_Sab_Admin_Form{
 
 	public function dcms_sab_section_callback_advanced(){
 		echo '<hr/>';
-		echo '<span><span class="dashicons dashicons-arrow-right"></span>'.sprintf(__('You can modify the template: %s', 'dcms-simple-author-bio'),'  /wp-content/plugins/dcms_simple_author_bio/template/box-author-bio.txt').'</span>';
+		echo '<span><span class="dashicons dashicons-arrow-right"></span>'.sprintf(__('You can modify the template: %s', 'simple-author-bio'),'  /wp-content/plugins/dcms_simple_author_bio/template/box-author-bio.txt').'</span>';
 	}
 
 	public function dcms_sab_section_callback_basic(){
 		echo '<hr/>';
-		echo '<span><span class="dashicons dashicons-arrow-right"></span>'.__('You can see additional social networks in your profile', 'dcms-simple-author-bio').'</span>';
+		echo '<span><span class="dashicons dashicons-arrow-right"></span>'.__('You can see additional social networks in your profile', 'simple-author-bio').'</span>';
 	}
 
 }

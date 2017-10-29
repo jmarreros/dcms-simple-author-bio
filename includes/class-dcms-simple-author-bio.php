@@ -171,7 +171,7 @@ class Dcms_Simple_Author_Bio{
 	*/
 	public function dcms_sab_tranlation(){
 
-		load_plugin_textdomain('dcms-simple-author-bio', false, DCMS_SAB_PATH_LANGUAGE );
+		load_plugin_textdomain('simple-author-bio', false, DCMS_SAB_PATH_LANGUAGE );
 
 	}
 

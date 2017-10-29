@@ -35,6 +35,8 @@ or install the plugin through the WordPress plugins screen directly.
 
 
 == Changelog ==
+= 1.0.3 =
+* Fixed text-domain for translating
 
 = 1.0.2 =
 * Fixed Pages not showing

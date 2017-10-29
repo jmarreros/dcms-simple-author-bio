@@ -3,12 +3,12 @@
  * Plugin Name:       Simple Author Bio
  * Plugin URI:        https://decodecms.com
  * Description:       This plugin shows the author's biography in articles
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Jhon Marreros Guzmán
  * Author URI:        https://decodecms.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       dcms-simple-author-bio
+ * Text Domain:       simple-author-bio
  * Domain Path:       /languages
  */
 

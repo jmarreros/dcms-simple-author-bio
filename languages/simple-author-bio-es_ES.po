@@ -3,14 +3,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Author Bio 1.0.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/dcms-simple-author-bio\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/simple-author-bio\n"
 "POT-Creation-Date: 2016-12-19 09:35-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-19 09:41-0500\n"
+"PO-Revision-Date: 2017-10-19 09:42-0500\n"
 "Language-Team: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: es_ES\n"
@@ -42,7 +42,7 @@ msgstr "Mostrar la caja de redes sociales"
 
 #: includes/class-dcms-sab-admin-form.php:60
 msgid "social icons in front-end"
-msgstr "Íconos sociales  en el front-end"
+msgstr "íconos sociales  en el front-end"
 
 #: includes/class-dcms-sab-admin-form.php:62
 msgid "Show link view all posts"
@@ -50,7 +50,7 @@ msgstr "Mostrar enlace ver todas las entradas"
 
 #: includes/class-dcms-sab-admin-form.php:65
 msgid "author's posts link in front-end"
-msgstr "Enlace de entradas del autor en el front-end"
+msgstr "enlace de entradas del autor en el front-end"
 
 #: includes/class-dcms-sab-admin-form.php:67
 msgid "Load FontAwesome"
@@ -58,7 +58,7 @@ msgstr "Cargar librería FontAwesome"
 
 #: includes/class-dcms-sab-admin-form.php:70
 msgid "If your theme loads FontAwesome uncheck this"
-msgstr "Si tu tema ya carga esta librería, desmarca esta opción."
+msgstr "Si tu tema ya carga esta librería, desmarca esta opción"
 
 #: includes/class-dcms-sab-admin-form.php:72
 msgid "Load Default CSS"
@@ -99,7 +99,7 @@ msgstr "https://decodecms.com"
 
 #. Description of the plugin/theme
 msgid "This plugin shows the author's biography in articles"
-msgstr "Este plugin muestra la biografía del autor en el pie de las entradas."
+msgstr "Este plugin muestra la biografía del autor en el pie de las entradas"
 
 #. Author of the plugin/theme
 msgid "Jhon Marreros Guzmán"
